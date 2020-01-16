@@ -3,31 +3,53 @@ import "./App.css";
 
 class App extends React.Component {
   state = {
-    value: ""
+    lastName: "",
+    dob: "",
+    age: "",
+    phone: "",
+    gender: ""
   };
 
-  handleChange = (event) => {
-    this.setState({ value: event.target.value });
+  handleChange = (e) => {
+    this.setState({ 
+      [e.target.name]: e.target.value });
   }
 
-  handleSubmit = (event) => {
-    alert("A name was submitted: " + this.state.value);
-    event.preventDefault();
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state);
     this.setState({ value: '' });
   }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
-        </label>
-        <input type="submit" value="Submit" />
+      <form action="">
+        <input type="text"
+          name="lastName"
+          placeholder="Last Name"
+          value={this.state.lastName}
+          onChange={e => {this.handleChange(e)}}/>
+        <input type="text"
+          name="dob"
+          placeholder="DOB"
+          value={this.state.dob}
+          onChange={e => {this.handleChange(e)}}/>
+        <input type="text"
+          name="age"
+          placeholder="Age"
+          value={this.state.age}
+          onChange={e => {this.handleChange(e)}}/>
+        <input type="text"
+          name="phone"
+          placeholder="Phone"
+          value={this.state.phone}
+          onChange={e => {this.handleChange(e)}}/>
+        <input type="select"
+          name="gender"
+          placeholder="Gender"
+          value={this.state.gender}
+          onChange={e => {this.handleChange(e)}}/>
+        <button onClick={e => this.handleSubmit(e)}>Submit</button>
       </form>
     );
   }
