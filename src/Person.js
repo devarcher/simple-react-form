@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Person = (props) => {
+const Person = ( {personData} ) => {
 
-  const { personData } = props
+  const { lastName, dob, age, gender } = personData;
   console.log(personData)
 
   return (
