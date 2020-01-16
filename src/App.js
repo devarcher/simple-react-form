@@ -7,7 +7,8 @@ class App extends React.Component {
     dob: "",
     age: "",
     phone: "",
-    gender: ""
+    gender: "",
+    fields: ""
   };
 
   handleChange = (e) => {
@@ -17,8 +18,7 @@ class App extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
-    this.setState({ value: '' });
+    this.setState({ fields: [...this.state.fields, this.state.fields] })
   }
 
   render() {
